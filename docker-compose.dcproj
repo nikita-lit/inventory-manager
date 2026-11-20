@@ -1,0 +1,17 @@
+<Project ToolsVersion="15.0" Sdk="Microsoft.Docker.Sdk">
+  <PropertyGroup Label="Globals">
+    <ProjectVersion>2.1</ProjectVersion>
+    <ProjectGuid>3e34125f-59fd-4085-94ac-be6efeb39482</ProjectGuid>
+    <DockerTargetOS>Linux</DockerTargetOS>
+    <DockerComposeBaseFilePath>compose</DockerComposeBaseFilePath>
+    <DockerComposeProjectName>inventory-manager</DockerComposeProjectName>
+    <DockerServiceName>im.api</DockerServiceName>
+    <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
+    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/</DockerServiceUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="compose.yml" />
+    <None Include=".dockerignore" />
+    <None Include="Properties/launchSettings.json" />
+  </ItemGroup>
+</Project>

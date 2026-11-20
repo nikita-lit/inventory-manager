@@ -1,4 +1,6 @@
 <Solution>
+    <Project Path="docker-compose.dcproj" />
+    <Project Path="src/IM.Api/IM.Api.csproj" />
     <Project Path="src/IM.Client/IM.Client.csproj" />
     <Project Path="src/IM.Client.Desktop/IM.Client.Desktop.csproj" />
     <Project Path="src/IM.Client.Android/IM.Client.Android.csproj">

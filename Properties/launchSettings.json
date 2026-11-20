@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "composeLaunchServiceName": "im.api",
+      "composeLaunchAction": "LaunchBrowser",
+      "composeLaunchUrl": "{Scheme}://localhost:{ServicePort}/",
+      "serviceActions": {
+        "im.api": "StartDebugging"
+      }
+    }
+  }
+}

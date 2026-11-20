@@ -1,0 +1,11 @@
+services:
+  im.api:
+    image: im.api
+    build:
+      context: .
+      dockerfile: src/IM.Api/Dockerfile
+    ports:
+      - "${IM_API_PORT:-5156}:8000"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8000"
