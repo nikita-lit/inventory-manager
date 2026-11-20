@@ -18,5 +18,11 @@
         <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.2" />
 
         <PackageVersion Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.0.1.15" />
+
+        <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="10.0.15" />
+        <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="10.0.13" />
+        <PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.13" />
+        <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.13" />
+        <PackageVersion Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.3" />
     </ItemGroup>
 </Project>

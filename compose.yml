@@ -1,0 +1,36 @@
+services:
+  im.api:
+    image: im.api
+    build:
+      context: .
+      dockerfile: src/IM.Api/Dockerfile
+    ports:
+      - "${IM_API_PORT:-5156}:8000"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8000"
+      ConnectionStrings__Inventory: "Host=im.db;Port=5432;Database=inventory;Username=inventory;Password=${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}"
+      Database__ApplyMigrations: "true"
+    depends_on:
+      im.db:
+        condition: service_healthy
+
+  im.db:
+    image: postgres:18
+    environment:
+      POSTGRES_DB: inventory
+      POSTGRES_USER: inventory
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}"
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5433}:5432"
+    volumes:
+      - im-db-data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U inventory -d inventory"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+volumes:
+  im-db-data:
