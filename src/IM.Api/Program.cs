@@ -1,3 +1,6 @@
+using IM.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace IM.Api;
 
 public class Program
@@ -6,6 +9,10 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder( args );
 
+        var connectionString = builder.Configuration.GetConnectionString( "Inventory" )
+            ?? throw new InvalidOperationException( "ConnectionStrings:Inventory is required." );
+        builder.Services.AddDbContext<InventoryDbContext>( options => options.UseNpgsql( connectionString ) );
+
         // Add services to the container.
         builder.Services.AddAuthorization();
 
@@ -13,6 +20,12 @@ public class Program
         builder.Services.AddOpenApi();
 
         var app = builder.Build();
+
+        if ( builder.Configuration.GetValue<bool>( "Database:ApplyMigrations" ) )
+        {
+            using var scope = app.Services.CreateScope();
+            scope.ServiceProvider.GetRequiredService<InventoryDbContext>().Database.Migrate();
+        }
 
         // Configure the HTTP request pipeline.
         if ( app.Environment.IsDevelopment() )
