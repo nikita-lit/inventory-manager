@@ -1,0 +1,15 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:navigation="using:IM.Client.Navigation"
+             x:Class="IM.Client.App"
+             RequestedThemeVariant="Default">
+    <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <navigation:ViewLocator />
+    </Application.DataTemplates>
+
+    <Application.Styles>
+        <StyleInclude Source="/Styles/AppStyles.axaml" />
+    </Application.Styles>
+</Application>

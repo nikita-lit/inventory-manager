@@ -1,0 +1,8 @@
+<Solution>
+    <Project Path="src/IM.Client/IM.Client.csproj" />
+    <Project Path="src/IM.Client.Desktop/IM.Client.Desktop.csproj" />
+    <Project Path="src/IM.Client.Android/IM.Client.Android.csproj">
+        <Deploy />
+    </Project>
+    <Project Path="src/IM.Client.Browser/IM.Client.Browser.csproj" />
+</Solution>
